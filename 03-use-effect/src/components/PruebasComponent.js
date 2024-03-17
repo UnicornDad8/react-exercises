@@ -23,7 +23,7 @@ const PruebasComponent = () => {
   useEffect(() => {
     console.log("Has cambiado el nombre de usuario" + contador);
     setContador(contador + 1);
-  }, [fecha, usuario, contador]);
+  }, [fecha, usuario]);
 
   return (
     <div>
