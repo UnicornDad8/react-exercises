@@ -26,6 +26,7 @@ const AjaxComponent = () => {
     ]);
   };
 
+  /*
   const getUsuariosAjax = () => {
     fetch("https://reqres.in/api/users?page=1")
       .then((respuesta) => respuesta.json())
@@ -38,6 +39,14 @@ const AjaxComponent = () => {
           console.log(error);
         }
       );
+  };
+  */
+
+  const getUsuariosAjax = async () => {
+    const peticion = await fetch("https://reqres.in/api/users?page=1");
+    const { data } = await peticion.json();
+
+    setUsuarios(data);
   };
 
   useEffect(() => {
