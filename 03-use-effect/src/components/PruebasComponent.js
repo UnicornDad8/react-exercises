@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AvisoComponent from "./AvisoComponent";
 
 const PruebasComponent = () => {
   const [usuario, setUsuario] = useState("Ceci Benitez");
@@ -22,12 +23,12 @@ const PruebasComponent = () => {
   useEffect(() => {
     console.log("Has cambiado el nombre de usuario" + contador);
     setContador(contador + 1);
-  }, [fecha, usuario]);
+  }, [fecha, usuario, contador]);
 
   return (
     <div>
       <h2>El efecto - Hook useEffect</h2>
-      <strong>{usuario}</strong>
+      <strong className="label">{usuario}</strong>
       <strong className={contador >= 10 ? "label label-green" : "label"}>
         {fecha}
       </strong>
@@ -39,6 +40,7 @@ const PruebasComponent = () => {
         />
         <button onClick={cambiarFecha}>Cambiar Fecha</button>
       </div>
+      {usuario === "Peque" && <AvisoComponent />}
     </div>
   );
 };
