@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const PruebasComponent = () => {
   const [usuario, setUsuario] = useState("Ceci Benitez");
   const [fecha, setFecha] = useState("04-02-1993");
+  const [contador, setContador] = useState(0);
 
   const modificarUsuario = (e) => {
     setUsuario(e.target.value);
@@ -19,14 +20,17 @@ const PruebasComponent = () => {
 
   // se ejecuta solo al cambiar el nombre de usuario
   useEffect(() => {
-    console.log("Has cambiado el nombre de usuario");
-  }, [usuario]);
+    console.log("Has cambiado el nombre de usuario" + contador);
+    setContador(contador + 1);
+  }, [fecha, usuario]);
 
   return (
     <div>
       <h2>El efecto - Hook useEffect</h2>
-      <strong className="label">{usuario}</strong>
-      <strong>{fecha}</strong>
+      <strong>{usuario}</strong>
+      <strong className={contador >= 10 ? "label label-green" : "label"}>
+        {fecha}
+      </strong>
       <div>
         <input
           type="text"
