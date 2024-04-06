@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const AjaxComponent = () => {
   const [usuarios, setUsuarios] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [errores, setErrores] = useState("");
 
   const getUsuariosEstaticos = () => {
     setUsuarios([
@@ -43,13 +44,16 @@ const AjaxComponent = () => {
   };
   */
 
-  const getUsuariosAjax = () => {
-    setTimeout(async () => {
-      const peticion = await fetch("https://reqres.in/api/users?page=1");
+  const getUsuariosAjax = async () => {
+    try {
+      const peticion = await fetch("https://reqres.in/api/xusers?page=1");
       const { data } = await peticion.json();
       setUsuarios(data);
       setCargando(false);
-    }, 3000);
+    } catch (err) {
+      console.log(err.message);
+      setErrores(err.message);
+    }
   };
 
   useEffect(() => {
@@ -58,13 +62,19 @@ const AjaxComponent = () => {
     getUsuariosAjax();
   }, []);
 
-  if (cargando === true) {
+  if (errores !== "") {
+    return (
+      <div className="error-message">
+        <p>{errores}</p>
+      </div>
+    );
+  } else if (cargando === true) {
     return (
       <div className="cargando">
         <h3>Cargando datos...</h3>
       </div>
     );
-  } else {
+  } else if (cargando === false && errores === "") {
     return (
       <div>
         <h2>Listado de usuarios via AJAX</h2>
