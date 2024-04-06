@@ -51,6 +51,13 @@
   color: #fff;
 }
 
+.label-gray {
+  background: #ccc;
+  border: 1px solid #444;
+  color: #444;
+  padding: 10px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -60,10 +67,9 @@ form input[type="text"],
 form select,
 form textarea {
   display: block;
-  margin: 10px;
+  margin: 10px 0;
   padding: 7px;
-  min-width: 250px;
-  max-width: 250px;
+  width: 100%;
   box-sizing: border-box;
   outline: none;
 }
@@ -76,10 +82,8 @@ form input[type="submit"],
 form input[type="button"],
 button {
   display: block;
-  margin: 10px;
+  margin: 10px 0;
   padding: 15px;
-  min-width: 250px;
-  max-width: 250px;
   box-sizing: border-box;
   cursor: pointer;
   background: dodgerblue;
