@@ -86,10 +86,54 @@ body {
   transform: scale(1.1, 1.1);
 }
 
+/* ------- Estilos Contenido -------- */
 .content {
-  border: 3px solid black;
-  background: lightgreen;
   grid-area: content;
+  background: #f6f7f9;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.peli-item {
+  margin: 20px 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #ddd;
+  padding: 60px 25px;
+}
+
+.peli-item p {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+  width: 100px;
+  background: #0b70e1;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  border-radius: 3px;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.peli-item .edit:hover {
+  background: #ffc733;
+  color: #333;
+}
+
+.peli-item .delete:hover {
+  background: #fd766a;
+  color: #333;
 }
 
 .lateral {
