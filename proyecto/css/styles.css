@@ -1,3 +1,4 @@
+/* ------- Estilos Generales -------- */
 * {
   margin: 0;
   padding: 0;
@@ -21,10 +22,33 @@ body {
   grid-template-rows: 100px 70px auto 70px;
 }
 
+/* ------- Estilos Cabecera -------- */
 .header {
-  border: 3px solid black;
-  background: lightcoral;
   grid-area: header;
+  background: #fff;
+  text-align: left;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  background: linear-gradient(90deg, #03228f 10%, #0e73e4 100%);
+  width: 40px;
+  height: 40px;
+  border-radius: 300px;
+  margin-right: 10px;
+}
+
+.play {
+  width: 0;
+  height: 0;
+  margin-top: 13px;
+  margin-left: 16px;
+  border-left: 14px solid #fff;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
 }
 
 .nav {
