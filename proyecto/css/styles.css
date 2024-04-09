@@ -97,6 +97,7 @@ body {
 }
 
 .peli-item {
+  flex-grow: 1;
   margin: 10px;
   background: #fff;
   border-radius: 10px;
@@ -169,8 +170,42 @@ input[type="button"] {
   border-color: transparent;
 }
 
+/* ------- Estilos del Pie de Pagina -------- */
 .footer {
-  border: 3px solid black;
-  background: dodgerblue;
   grid-area: footer;
+  background: #d1defa;
+  color: #454545;
+  border-top: 1px solid #fff;
+  text-align: left;
+  line-height: 90px;
+  padding-left: 25px;
+}
+
+.footer a {
+  color: #0b468a;
+  text-decoration: none;
+}
+
+@media (max-width: 1085px) {
+  .content {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+  }
+
+  .peli-item {
+    width: 80%;
+  }
+
+  .lateral > div {
+    margin: 10px auto;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .lateral input[type="text"],
+  .lateral textarea {
+    width: 80%;
+  }
 }
