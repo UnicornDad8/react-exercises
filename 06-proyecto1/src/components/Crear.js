@@ -21,9 +21,24 @@ const Crear = () => {
       titulo,
       descripcion,
     };
-    setPeliState(peli);
 
-    console.log(peliState);
+    setPeliState(peli);
+    guardarEnStorage(peli);
+    // console.log(peliState);
+  };
+
+  const guardarEnStorage = (peli) => {
+    let elementos = JSON.parse(localStorage.getItem("pelis"));
+
+    if (Array.isArray(elementos)) {
+      elementos.push(peli);
+    } else {
+      elementos = [peli];
+    }
+
+    localStorage.setItem("pelis", JSON.stringify(elementos));
+    console.log(elementos);
+    return peli;
   };
 
   return (
