@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { GuardarEnStorage } from "../helpers/GuardarEnStorage";
 
 const Crear = () => {
   const tituloComponente = "Añadir Pelicula";
@@ -23,22 +24,8 @@ const Crear = () => {
     };
 
     setPeliState(peli);
-    guardarEnStorage(peli);
+    GuardarEnStorage("pelis", peli);
     // console.log(peliState);
-  };
-
-  const guardarEnStorage = (peli) => {
-    let elementos = JSON.parse(localStorage.getItem("pelis"));
-
-    if (Array.isArray(elementos)) {
-      elementos.push(peli);
-    } else {
-      elementos = [peli];
-    }
-
-    localStorage.setItem("pelis", JSON.stringify(elementos));
-    console.log(elementos);
-    return peli;
   };
 
   return (
