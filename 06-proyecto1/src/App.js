@@ -1,3 +1,7 @@
+import Listado from "./components/Listado";
+import Buscador from "./components/Buscador";
+import Crear from "./components/Crear";
+
 function App() {
   return (
     <div className="layout">
@@ -27,66 +31,12 @@ function App() {
       </nav>
 
       <section className="content">
-        <article className="peli-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">Github: Unicorn Dad</p>
-
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
-        <article className="peli-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">Github: Unicorn Dad</p>
-
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
-        <article className="peli-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">Github: Unicorn Dad</p>
-
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
-        <article className="peli-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">Github: Unicorn Dad</p>
-
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
-        <article className="peli-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">Github: Unicorn Dad</p>
-
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
-        <article className="peli-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">Github: Unicorn Dad</p>
-
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
+        <Listado />
       </section>
 
       <aside className="lateral">
-        <div className="search">
-          <h3 className="title">Buscador</h3>
-          <form>
-            <input type="text" placeholder="Buscar" />
-            <button>Buscar</button>
-          </form>
-        </div>
-        <div className="add">
-          <h3 className="title">Añadir Pelicula</h3>
-          <form>
-            <input type="text" placeholder="Titulo" />
-            <textarea placeholder="Descripcion"></textarea>
-            <input type="submit" value="Guardar" />
-          </form>
-        </div>
+        <Buscador />
+        <Crear />
       </aside>
 
       <footer className="footer">
