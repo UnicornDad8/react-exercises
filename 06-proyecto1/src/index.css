@@ -92,8 +92,15 @@ body {
   background: #f6f7f9;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.no-pelis {
+  font-size: 20px;
+  font-weight: 300;
+  color: #444;
 }
 
 .peli-item {

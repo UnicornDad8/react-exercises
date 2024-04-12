@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GuardarEnStorage } from "../helpers/GuardarEnStorage";
 
-const Crear = () => {
+const Crear = ({ setListadoState }) => {
   const tituloComponente = "Añadir Pelicula";
   const [peliState, setPeliState] = useState({
     titulo: "",
@@ -24,18 +24,15 @@ const Crear = () => {
     };
 
     setPeliState(peli);
+    setListadoState((elementos) => {
+      return [...elementos, peli];
+    });
     GuardarEnStorage("pelis", peli);
-    // console.log(peliState);
   };
 
   return (
     <div className="add">
       <h3 className="title">{tituloComponente}</h3>
-      {titulo && descripcion && (
-        <p>
-          Has creado la pelicula: <strong>{titulo}</strong>
-        </p>
-      )}
       <form onSubmit={conseguirDatosForm}>
         <input type="text" placeholder="Titulo" id="titulo" name="titulo" />
         <textarea
