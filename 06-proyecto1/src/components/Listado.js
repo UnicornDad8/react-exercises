@@ -1,18 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 
 const Listado = ({ listadoState, setListadoState }) => {
-  useEffect(() => {
-    conseguirPeliculas();
-  }, []);
-
-  const conseguirPeliculas = () => {
+  const conseguirPeliculas = useCallback(() => {
     let peliculas = JSON.parse(localStorage.getItem("pelis"));
     setListadoState(peliculas);
+    return peliculas;
+  }, [setListadoState]);
+
+  useEffect(() => {
+    conseguirPeliculas();
+  }, [conseguirPeliculas]);
+
+  const borrarPeli = (id) => {
+    let pelis_almacenadas = conseguirPeliculas();
+
+    let nuevo_array_pelis = pelis_almacenadas.filter(
+      (peli) => peli.id !== parseInt(id)
+    );
+
+    setListadoState(nuevo_array_pelis);
+
+    localStorage.setItem("pelis", JSON.stringify(nuevo_array_pelis));
   };
 
   return (
     <>
-      {listadoState !== null ? (
+      {listadoState.length !== 0 ? (
         listadoState.map((peli) => {
           return (
             <article key={peli.id} className="peli-item">
@@ -20,7 +33,9 @@ const Listado = ({ listadoState, setListadoState }) => {
               <p className="description">{peli.descripcion}</p>
 
               <button className="edit">Editar</button>
-              <button className="delete">Borrar</button>
+              <button className="delete" onClick={() => borrarPeli(peli.id)}>
+                Borrar
+              </button>
             </article>
           );
         })
