@@ -41,7 +41,14 @@ const Listado = ({ listadoState, setListadoState }) => {
               <button className="delete" onClick={() => borrarPeli(peli.id)}>
                 Borrar
               </button>
-              {editar === peli.id && <Editar peli={peli} />}
+              {editar === peli.id && (
+                <Editar
+                  peli={peli}
+                  conseguirPeliculas={conseguirPeliculas}
+                  setEditar={setEditar}
+                  setListadoState={setListadoState}
+                />
+              )}
             </article>
           );
         })

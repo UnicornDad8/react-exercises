@@ -1,11 +1,33 @@
 import React from "react";
 
-const Editar = ({ peli }) => {
+const Editar = ({ peli, conseguirPeliculas, setEditar, setListadoState }) => {
   const titulo_componente = "Editar Pelicula";
+
+  const guardarEdicion = (e, id) => {
+    e.preventDefault();
+    let target = e.target;
+
+    const pelis_almacenadas = conseguirPeliculas();
+    const indice = pelis_almacenadas.findIndex((peli) => peli.id === id);
+
+    let peli_actualizada = {
+      id,
+      titulo: target.titulo.value,
+      descripcion: target.descripcion.value,
+    };
+
+    pelis_almacenadas[indice] = peli_actualizada;
+
+    localStorage.setItem("pelis", JSON.stringify(pelis_almacenadas));
+
+    setListadoState(pelis_almacenadas);
+    setEditar(0);
+  };
+
   return (
     <div className="edit_form">
       <h3 className="title">{titulo_componente}</h3>
-      <form className="edit_form">
+      <form onSubmit={(e) => guardarEdicion(e, peli.id)} className="edit_form">
         <input
           type="text"
           name="titulo"
