@@ -1,6 +1,9 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
+import Editar from "./Editar";
 
 const Listado = ({ listadoState, setListadoState }) => {
+  const [editar, setEditar] = useState(0);
+
   const conseguirPeliculas = useCallback(() => {
     let peliculas = JSON.parse(localStorage.getItem("pelis"));
     setListadoState(peliculas);
@@ -32,10 +35,13 @@ const Listado = ({ listadoState, setListadoState }) => {
               <h3 className="title">{peli.titulo}</h3>
               <p className="description">{peli.descripcion}</p>
 
-              <button className="edit">Editar</button>
+              <button className="edit" onClick={() => setEditar(peli.id)}>
+                Editar
+              </button>
               <button className="delete" onClick={() => borrarPeli(peli.id)}>
                 Borrar
               </button>
+              {editar === peli.id && <Editar />}
             </article>
           );
         })
