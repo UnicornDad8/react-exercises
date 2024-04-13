@@ -168,17 +168,25 @@ input[type="button"] {
 }
 
 .lateral input[type="text"],
-.lateral textarea {
+.lateral textarea,
+.edit_form input[type="text"],
+.edit_form textarea {
   display: block;
   margin: 15px auto;
   padding: 12px;
   border-radius: 5px;
   background: #f6f7f9;
   color: #454545;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
   width: 80%;
   opacity: 4;
   outline: none;
   border-color: transparent;
+}
+
+.edit_form {
+  margin-top: 20px;
 }
 
 /* ------- Estilos del Pie de Pagina -------- */
