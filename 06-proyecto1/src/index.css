@@ -189,6 +189,11 @@ input[type="button"] {
   margin-top: 20px;
 }
 
+.description {
+  width: 300px;
+  margin: 0 auto;
+}
+
 /* ------- Estilos del Pie de Pagina -------- */
 .footer {
   grid-area: footer;
