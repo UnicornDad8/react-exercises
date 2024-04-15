@@ -198,6 +198,11 @@ input[type="button"] {
   margin: 0 auto;
 }
 
+.no-encontrado {
+  color: #fd766a;
+  margin: 10px auto;
+}
+
 /* ------- Estilos del Pie de Pagina -------- */
 .footer {
   grid-area: footer;
